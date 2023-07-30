@@ -7,7 +7,7 @@ function BotsPage() {
   const [botArmy, setBotArmy] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/bots')
+    fetch('https://api.npoint.io/b91de1d0f1a901eb829d/bots/')
       .then((response) => response.json())
       .then((data) => setBotList(data))
   }, []);
@@ -30,7 +30,7 @@ function BotsPage() {
       setBotList(botList.filter((bot) => bot !== singleBotInArmy));
       setBotArmy(botArmy.filter((bot) => bot !== singleBotInArmy));
 
-      fetch(`http://localhost:3000/bots/${singleBotInArmy.id}`, {
+      fetch(`https://api.npoint.io/b91de1d0f1a901eb829d/bots/${singleBotInArmy.id}`, {
         method: 'DELETE'
       });
     }
